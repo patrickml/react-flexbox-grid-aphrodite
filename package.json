@@ -1,6 +1,6 @@
 {
   "name": "react-flexbox-grid-aphrodite",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Inline Flexbox Grid for React",
   "main": "./lib/index.js",
   "scripts": {
