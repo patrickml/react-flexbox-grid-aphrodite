@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { css } from 'aphrodite/no-important';
 import createProps from './create-props';
-import style from '../components/style';
+import style from './style';
 
 const ModificatorType = PropTypes.oneOf(['xs', 'sm', 'md', 'lg']);
 const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between', 'first', 'last'];
