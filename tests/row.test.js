@@ -55,7 +55,7 @@ describe('Row', () => {
       'last-sm',
     ];
 
-    styleKeys.map(
+    styleKeys.forEach(
       classContains(wrapper.props().className),
     );
   });
