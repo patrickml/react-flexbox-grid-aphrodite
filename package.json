@@ -4,15 +4,18 @@
   "description": "Inline Flexbox Grid for React",
   "main": "./lib/index.js",
   "scripts": {
-    "clean": "rimraf lib",
-    "jest": "NODE_ENV=development ./node_modules/.bin/jest",
-    "test": "npm run jest",
-    "test:watch": "npm run jest -- --watch",
-    "test:examples": "node examples/",
+    "build:docs": "./node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
+    "build": "cross-env BABEL_ENV=commonjs ./node_modules/.bin/babel src --out-dir lib",
+    "clean:docs": "./node_modules/.bin/rimraf ./docs",
+    "clean": "./node_modules/.bin/rimraf lib",
     "cover": "npm run jest -- --coverage",
-    "lint": "eslint src tests",
-    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+    "docs": "npm run clean:docs && npm run build:docs",
+    "jest": "NODE_ENV=development ./node_modules/.bin/jest",
+    "lint": "./node_modules/.bin/eslint src tests",
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
+    "test:examples": "node examples/",
+    "test:watch": "npm run jest -- --watch",
+    "test": "npm run jest"
   },
   "files": [
     "lib",
