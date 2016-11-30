@@ -1,11 +1,9 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import { css } from 'aphrodite';
 
 import { Row, style } from '../src/components';
-
-const containsStyle =
-  x => key => (expect(x).toContain(css(style[key])));
 
 describe('Row', () => {
   it('Should add "row" class', () => {
@@ -18,7 +16,7 @@ describe('Row', () => {
     expect(wrapper.props().className).toContain(css(style.reverse));
   });
 
-  it('Should not replace class', () => {
+  it('Should preserve class', () => {
     const wrapper = shallow(<Row className="foo" />);
     const { className } = wrapper.props();
     expect(className).toContain('foo');
@@ -26,7 +24,7 @@ describe('Row', () => {
   });
 
   it('Should add modificators', () => {
-    const wrapper = shallow(
+    const tree = renderer.create(
       <Row
         start="xs"
         center="sm"
@@ -41,23 +39,7 @@ describe('Row', () => {
       />,
     );
 
-    const styleKeys = [
-      'row',
-      'start-xs',
-      'center-sm',
-      'end-md',
-      'top-lg',
-      'middle-xs',
-      'bottom-sm',
-      'around-md',
-      'between-lg',
-      'first-xs',
-      'last-sm',
-    ];
-
-    styleKeys.forEach(
-      containsStyle(wrapper.props().className),
-    );
+    expect(tree.toJSON()).toMatchSnapshot();
   });
 
   it('Should support custom tag name', () => {
