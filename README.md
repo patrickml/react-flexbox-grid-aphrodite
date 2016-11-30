@@ -32,19 +32,15 @@ React.render(<Grid />, document.querySelector('#main'))
 ## Code snippets
 
 ```jsx
-import {Grid, Row, Col} from 'react-flexbox-grid-aphrodite';
+import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 
-const App = React.createClass({
-  render() {
-    return (
-      <Grid>
-        <Row>
-          <Col xs={6} md={3}>Hello, world!</Col>
-        </Row>
-      </Grid>
-    );
-  }
-});
+const MyComponent = () => (
+  <Grid>
+    <Row>
+      <Col xs={6} md={3}>Hello, world!</Col>
+    </Row>
+  </Grid>
+);
 ```
 
 ## Contributors
