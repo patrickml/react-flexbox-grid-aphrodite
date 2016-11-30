@@ -8,8 +8,11 @@ import {
   DEFAULT_COLUMN_STYLES,
 } from './constants';
 
+/** @module grid */
+
 /**
  * Reduces an array of objects into a single object
+ * @function
  * @param  {Object} m object thus far
  * @param  {Object} o the next object in the array
  * @return {Object}
@@ -18,6 +21,7 @@ export const reduceStyles = (m, o) => ({ ...m, ...(o.default || o) });
 
 /**
  * Creates the media port key for our object
+ * @function
  * @param  {String} size  the size to create the media port for
  * @return {String}
  */
@@ -29,16 +33,18 @@ export const getMediaPortKey = size => (
 
 /**
  * Will either return the original object or wrap the original object in the media key
+ * @function
  * @param  {String} mediaKey the media key
  * @param  {Object} obj      the original object
  * @return {Object}
  */
 export const wrapMedia = (mediaKey, obj) => (
-    mediaKey === 'default' ? obj : { [mediaKey]: obj }
+  mediaKey === 'default' ? obj : { [mediaKey]: obj }
 );
 
 /**
  * Creates misc data for columns depending on if they are 0 index or not
+ * @function
  * @param  {Number} col   the column number
  * @param  {String} width the percent width
  * @return {Object}
@@ -56,6 +62,7 @@ export const columnExtras = (col, width) => (
 
 /**
  * Creates a regular column for a particular size
+ * @function
  * @param  {String} size  the size to create the column for
  * @param  {Number} col   the column number we are creating this for
  * @return {Object}
@@ -71,6 +78,7 @@ export const createColumn = (size, col, mediaKey) => (
 
 /**
  * Creates an offset column
+ * @function
  * @param  {String} size  the size to create the column for
  * @param  {Number} col   the column number we are creating this for
  * @return {Object}
@@ -86,6 +94,7 @@ export const createOffsetColumn = (size, col, mediaKey) => (
 
 /**
  * Creates the position columns i.e. start, end, etc. for a particular size
+ * @function
  * @param  {String} size  the size to create the columns for
  * @return {Object}
  */
@@ -99,6 +108,7 @@ export const createPositionColumns = (size, mediaKey) => (
 
 /**
  * Creates a container style element for a particular size
+ * @function
  * @param  {String} size  the size to create the container for
  * @return {Object}
  */
@@ -114,6 +124,7 @@ export const createContainer = (size, mediaKey) => (
 
 /**
  * Creates a set of columns by size nested by the corresponding viewport
+ * @function
  * @param  {String} size  the size to create the columns for
  * @return {Object}
  */

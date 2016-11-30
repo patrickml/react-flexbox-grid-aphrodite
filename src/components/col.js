@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import { createElement, PropTypes } from 'react';
 import { css } from 'aphrodite/no-important';
 import createProps from './create-props';
 import style from './style';
@@ -54,7 +54,7 @@ function getClassNames(props) {
 export default function Col(props) {
   const className = getClassNames(props);
 
-  return React.createElement(props.tagName || 'div', createProps(propTypes, props, className));
+  return createElement(props.tagName || 'div', createProps(propTypes, props, className));
 }
 
 Col.propTypes = propTypes;

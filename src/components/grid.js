@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import { createElement, PropTypes } from 'react';
 import { css } from 'aphrodite/no-important';
 import createProps from './create-props';
 import style from '../components/style';
@@ -16,7 +16,7 @@ export default function Grid(props) {
   const containerClass = css(style[props.fluid ? 'container-fluid' : 'container']);
   const className = [props.className, containerClass].filter(o => o).join(' ');
 
-  return React.createElement(props.tagName || 'div', createProps(propTypes, props, className));
+  return createElement(props.tagName || 'div', createProps(propTypes, props, className));
 }
 
 Grid.propTypes = propTypes;

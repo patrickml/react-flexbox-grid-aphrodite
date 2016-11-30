@@ -2,6 +2,13 @@
   "parser": "babel-eslint",
   "extends": "airbnb",
   "env": {
-    "mocha": true
+    "jest": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "no-confusing-arrow": 0,
+    "no-underscore-dangle": 0
   }
 }
