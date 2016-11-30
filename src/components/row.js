@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import { createElement, PropTypes } from 'react';
 import { css } from 'aphrodite/no-important';
 import createProps from './create-props';
-import style from '../components/style';
+import style from './style';
 
 const ModificatorType = PropTypes.oneOf(['xs', 'sm', 'md', 'lg']);
 const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between', 'first', 'last'];
@@ -45,7 +45,7 @@ function getClassNames(props) {
 }
 
 export default function Row(props) {
-  return React.createElement(props.tagName || 'div', createProps(propTypes, props, getClassNames(props)));
+  return createElement(props.tagName || 'div', createProps(propTypes, props, getClassNames(props)));
 }
 
 Row.propTypes = propTypes;
