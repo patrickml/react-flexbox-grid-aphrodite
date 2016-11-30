@@ -4,8 +4,8 @@ import { css } from 'aphrodite';
 
 import { Row, style } from '../src/components';
 
-const classContains =
-  c => key => (expect(c).toContain(css(style[key])));
+const containsStyle =
+  x => key => (expect(x).toContain(css(style[key])));
 
 describe('Row', () => {
   it('Should add "row" class', () => {
@@ -56,7 +56,7 @@ describe('Row', () => {
     ];
 
     styleKeys.forEach(
-      classContains(wrapper.props().className),
+      containsStyle(wrapper.props().className),
     );
   });
 
