@@ -1,0 +1,4 @@
+exports[`Col Should match the snapshot 1`] = `
+<div
+  className="col-xs-12_1184rda" />
+`;
