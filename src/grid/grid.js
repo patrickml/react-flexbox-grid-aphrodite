@@ -34,7 +34,7 @@ export const getMediaPortKey = size => (
  * @return {Object}
  */
 export const wrapMedia = (mediaKey, obj) => (
-    mediaKey === 'default' ? obj : { [mediaKey]: obj }
+  mediaKey === 'default' ? obj : { [mediaKey]: obj }
 );
 
 /**
