@@ -19,6 +19,21 @@ import {
  */
 export const reduceStyles = (m, o) => ({ ...m, ...(o.default || o) });
 
+
+const VIEWPORT_KEYS = Object.keys(VIEWPORTS);
+
+/**
+ * Returns the index of a specific media size in the view port keys array
+ * @function viewPortKeyIndex
+ * @param  {String}         size the size to look up
+ * @return {Number}             the index
+ */
+export const viewPortKeyIndex = size => VIEWPORT_KEYS.indexOf(size);
+
+const getMaxMediaPort = size => (
+  size !== 'lg' ? ` and (max-width: ${VIEWPORTS[VIEWPORT_KEYS[viewPortKeyIndex(size) + 1]]})` : ''
+);
+
 /**
  * Creates the media port key for our object
  * @function
@@ -28,7 +43,7 @@ export const reduceStyles = (m, o) => ({ ...m, ...(o.default || o) });
 export const getMediaPortKey = size => (
   // create our media key, but because xs doesnt have a media query we will use `default`
   // we will later move everything from default into the main scope of the object
-  size !== 'xs' ? `@media only screen and (min-width: ${VIEWPORTS[size]})` : 'default'
+  size !== 'xs' ? `@media only screen and (min-width: ${VIEWPORTS[size]})${getMaxMediaPort(size)}` : 'default'
 );
 
 /**
