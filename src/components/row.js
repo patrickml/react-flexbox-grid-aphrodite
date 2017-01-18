@@ -26,22 +26,24 @@ const propTypes = {
 /* eslint-enable */
 
 function getClassNames(props) {
-  const modificators = [props.className, css(style.row)];
+  const modificators = [style.row];
 
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < modificatorKeys.length; ++i) {
     const key = modificatorKeys[i];
     const value = props[key];
     if (value) {
-      modificators.push(css(style[`${key}-${value}`]));
+      modificators.push(style[`${key}-${value}`]);
     }
   }
 
   if (props.reverse) {
-    modificators.push(css(style.reverse));
+    modificators.push(style.reverse);
   }
 
-  return modificators.filter(o => o).join(' ');
+  const classes = modificators.filter(o => o && typeof o === 'object');
+
+  return !props.className ? css(...classes) : `${props.className} ${css(...classes)}`;
 }
 
 export default function Row(props) {

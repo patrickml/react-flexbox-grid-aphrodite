@@ -1,4 +1,4 @@
 exports[`Row Should add modificators 1`] = `
 <div
-  className="row_1gqinwe start-xs_1vpirt5 center-sm_152rggo end-md_4r64ii top-lg_8k763r middle-xs_19zvu2s bottom-sm_12olb77 around-md_p9gi4p between-lg_z13jfy first-xs_1y522tc last-sm_ezqnk6" />
+  className="row_1gqinwe-o_O-start-xs_1vpirt5-o_O-center-sm_152rggo-o_O-end-md_4r64ii-o_O-top-lg_8k763r-o_O-middle-xs_19zvu2s-o_O-bottom-sm_12olb77-o_O-around-md_p9gi4p-o_O-between-lg_z13jfy-o_O-first-xs_1y522tc-o_O-last-sm_ezqnk6" />
 `;

@@ -36,19 +36,17 @@ const classMap = {
 function getClassNames(props) {
   const extraClasses = [];
 
-  if (props.className) {
-    extraClasses.push(props.className);
-  }
-
   if (props.reverse) {
-    extraClasses.push(css(style.reverse));
+    extraClasses.push(style.reverse);
   }
 
-  return Object.keys(props)
+  const classes = Object.keys(props)
     .filter(key => classMap[key])
-    .map(key => css(style[Number.isInteger(props[key]) ? (`${classMap[key]}-${props[key]}`) : classMap[key]]))
+    .map(key => style[Number.isInteger(props[key]) ? (`${classMap[key]}-${props[key]}`) : classMap[key]])
     .concat(extraClasses)
-    .join(' ');
+    .filter(k => typeof k === 'object');
+
+  return !props.className ? css(...classes) : `${props.className} ${css(...classes)}`;
 }
 
 export default function Col(props) {
