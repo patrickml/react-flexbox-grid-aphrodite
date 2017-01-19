@@ -76,5 +76,7 @@ export const MISC_STYLES = {
   'container-fluid': {
     paddingRight: '2rem',
     paddingLeft: '2rem',
+    marginRight: 'auto',
+    marginLeft: 'auto',
   },
 };

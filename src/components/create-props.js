@@ -3,7 +3,9 @@ export default (propTypes, props, className) => {
 
   Object.keys(props)
     .filter(key => (key === 'children' || !propTypes[key]))
-    .forEach(key => (newProps[key] = props[key]));
+    .forEach((key) => {
+      newProps[key] = props[key];
+    });
 
   return Object.assign({}, newProps, { className });
 };

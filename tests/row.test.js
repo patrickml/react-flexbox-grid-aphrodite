@@ -26,16 +26,16 @@ describe('Row', () => {
   it('Should add modificators', () => {
     const tree = renderer.create(
       <Row
-        start="xs"
-        center="sm"
-        end="md"
-        top="lg"
-        middle="xs"
-        bottom="sm"
-        around="md"
-        between="lg"
-        first="xs"
-        last="sm"
+        start="xs,sm,md,lg"
+        center="xs,sm,md,lg"
+        end="xs,sm,md,lg"
+        top="xs,sm,md,lg"
+        middle="xs,sm,md,lg"
+        bottom="xs,sm,md,lg"
+        around="xs,sm,md,lg"
+        between="xs,sm,md,lg"
+        first="xs,sm,md,lg"
+        last="xs,sm,md,lg"
       />,
     );
 

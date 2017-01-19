@@ -23,6 +23,17 @@ describe('Grid', () => {
     expect(className).toContain(css(style.container));
   });
 
+  it('Should have children', () => {
+    const wrapper = shallow(
+      <Grid className="foo">
+        <p />
+      </Grid>,
+    );
+    const { className } = wrapper.props();
+    expect(className).toContain('foo');
+    expect(className).toContain(css(style.container));
+  });
+
   it('Should add modificators', () => {
     const tree = renderer.create(
       <Grid />,
