@@ -1,5 +1,6 @@
-import { createElement, PropTypes } from 'react';
+import { createElement } from 'react';
 import { css } from 'aphrodite/no-important';
+import PropTypes from 'prop-types';
 import createProps from './create-props';
 import style from './style';
 
