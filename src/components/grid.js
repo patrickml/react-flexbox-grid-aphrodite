@@ -9,12 +9,16 @@ const propTypes = {
   fluid: PropTypes.bool,
   className: PropTypes.string,
   tagName: PropTypes.string,
+  // Aphrodite SheetDefinitions
+  styles: PropTypes.any,
   children: PropTypes.node,
 };
 /* eslint-enable */
 
 export default function Grid(props) {
-  const containerClass = css(style[props.fluid ? 'container-fluid' : 'container']);
+  const containerClass = css(style[
+    props.fluid ? 'container-fluid' : 'container'], props.styles,
+  );
   const className = [props.className, containerClass].filter(o => o).join(' ');
 
   return createElement(props.tagName || 'div', createProps(propTypes, props, className));

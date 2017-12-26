@@ -18,6 +18,8 @@ const propTypes = {
   lgOffset: PropTypes.number,
   reverse: PropTypes.bool,
   className: PropTypes.string,
+  // Aphrodite SheetDefinitions
+  styles: PropTypes.any,
   tagName: PropTypes.string,
   children: PropTypes.node,
 };
@@ -45,7 +47,8 @@ function getClassNames(props) {
     .filter(key => classMap[key])
     .map(key => style[Number.isInteger(props[key]) ? (`${classMap[key]}-${props[key]}`) : classMap[key]])
     .concat(extraClasses)
-    .filter(k => typeof k === 'object');
+    .filter(k => typeof k === 'object')
+    .concat([props.styles]);
 
   return !props.className ? css(...classes) : `${props.className} ${css(...classes)}`;
 }
