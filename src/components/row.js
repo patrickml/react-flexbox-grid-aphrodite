@@ -45,7 +45,9 @@ function getClassNames(props) {
     modificators.push(style.reverse);
   }
 
-  const classes = modificators.filter(o => o && typeof o === 'object').concat([props.styles]);
+  const classes = modificators
+    .filter(o => o && typeof o === 'object')
+    .concat([props.styles]);
 
   return !props.className ? css(...classes) : `${props.className} ${css(...classes)}`;
 }

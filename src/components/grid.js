@@ -17,7 +17,8 @@ const propTypes = {
 
 export default function Grid(props) {
   const containerClass = css(style[
-    props.fluid ? 'container-fluid' : 'container'], props.styles,
+    props.fluid ? 'container-fluid' : 'container'],
+    props.styles,
   );
   const className = [props.className, containerClass].filter(o => o).join(' ');
 
