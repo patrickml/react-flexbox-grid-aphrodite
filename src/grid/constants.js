@@ -43,9 +43,13 @@ export const FLEX_OPTIONS = {
     justifyContent: 'space-between',
   },
   first: {
+    '-webkit-box-ordinal-group': 0,
+    '-ms-flex-order': -1,
     order: -1,
   },
   last: {
+    '-webkit-box-ordinal-group': 2,
+    '-ms-flex-order': 1,
     order: 1,
   },
 };

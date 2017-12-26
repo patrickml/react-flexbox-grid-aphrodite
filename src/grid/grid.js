@@ -108,6 +108,22 @@ export const createOffsetColumn = (size, col, mediaKey) => (
 );
 
 /**
+ * Creates a column order
+ * @function
+ * @param  {String} size  the size to create column order for
+ * @param  {String} type  'first' or 'last'
+ * @param  {String} mediaKey
+ * @return {Object}
+ */
+export const createOrderColumn = (size, type, mediaKey) => (
+  {
+    [`${type}-${size}`]: wrapMedia(mediaKey, {
+      ...FLEX_OPTIONS[type],
+    }),
+  }
+);
+
+/**
  * Creates the position columns i.e. start, end, etc. for a particular size
  * @function
  * @param  {String} size  the size to create the columns for
@@ -152,6 +168,8 @@ export const createFlexColumns = (size) => {
       ...createColumn(size, col, mediaKey),
       ...createOffsetColumn(size, col, mediaKey),
       ...createPositionColumns(size, mediaKey),
+      ...createOrderColumn(size, 'first', mediaKey),
+      ...createOrderColumn(size, 'last', mediaKey),
     }
   )).reduce(reduceStyles, {});
 };
