@@ -131,7 +131,7 @@ export const createContainer = sizes => (
   {
     container: sizes.map(size =>
       wrapMedia(getMediaPortKey(size), {
-        width: CONTAINER_SIZES[size],
+        width: CONTAINER_SIZES[size] || 'initial',
         marginRight: 'auto',
         marginLeft: 'auto',
       }),
