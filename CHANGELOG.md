@@ -5,6 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+
+## 2.0.0
+
+- [BREAKING] Removed `max-width` on media-queries. This matches the initial
+  implementation of `flexboxgrid`, and makes the library easier to use when
+  combining size directives (`xs`, `md` etc.)
+
 ## 1.0.5
 
 - Allow passing extra aphrodite style object to `Grid`, `Row`, or `Col` through
