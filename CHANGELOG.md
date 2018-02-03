@@ -9,3 +9,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   the `styles` props. You can still pass `classNames` that will be appended, but
   using `styles` is encouraged over passing extra `classNames` to extend styles.
   https://github.com/patrickml/react-flexbox-grid-aphrodite/pull/10
+- Fixed generated container styles
+  https://github.com/patrickml/react-flexbox-grid-aphrodite/pull/8
