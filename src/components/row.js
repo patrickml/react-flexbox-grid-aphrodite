@@ -20,6 +20,8 @@ const propTypes = {
   first: PropTypes.string,
   last: PropTypes.string,
   className: PropTypes.string,
+  // Aphrodite SheetDefinitions
+  styles: PropTypes.any,
   tagName: PropTypes.string,
   children: PropTypes.node,
 };
@@ -43,7 +45,9 @@ function getClassNames(props) {
     modificators.push(style.reverse);
   }
 
-  const classes = modificators.filter(o => o && typeof o === 'object');
+  const classes = modificators
+    .filter(o => o && typeof o === 'object')
+    .concat([props.styles]);
 
   return !props.className ? css(...classes) : `${props.className} ${css(...classes)}`;
 }
