@@ -39,7 +39,7 @@ describe('Col', () => {
 
   it('Should support auto-width', () => {
     const wrapper = shallow(<Col xs sm md lg />);
-    const classes = ['col-xs', 'col-sm', 'col-md', 'col-md'];
+    const classes = ['col-xs', 'col-sm', 'col-md', 'col-lg'];
     classes.forEach((c) => {
       expect(wrapper.props().className).toContain(css(style[c]));
     });

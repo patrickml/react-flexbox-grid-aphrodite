@@ -16,6 +16,14 @@ const propTypes = {
   smOffset: PropTypes.number,
   mdOffset: PropTypes.number,
   lgOffset: PropTypes.number,
+  xsFirst: PropTypes.bool,
+  smFirst: PropTypes.bool,
+  mdFirst: PropTypes.bool,
+  lgFirst: PropTypes.bool,
+  xsLast: PropTypes.bool,
+  smLast: PropTypes.bool,
+  mdLast: PropTypes.bool,
+  lgLast: PropTypes.bool,
   reverse: PropTypes.bool,
   className: PropTypes.string,
   // Aphrodite SheetDefinitions
@@ -34,6 +42,14 @@ const classMap = {
   smOffset: 'col-sm-offset',
   mdOffset: 'col-md-offset',
   lgOffset: 'col-lg-offset',
+  xsFirst: 'first-xs',
+  smFirst: 'first-sm',
+  mdFirst: 'first-md',
+  lgFirst: 'first-lg',
+  xsLast: 'last-xs',
+  smLast: 'last-sm',
+  mdLast: 'last-md',
+  lgLast: 'last-lg',
 };
 
 function getClassNames(props) {
