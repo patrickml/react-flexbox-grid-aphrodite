@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## 1.0.5
+
 - Allow passing extra aphrodite style object to `Grid`, `Row`, or `Col` through
   the `styles` props. You can still pass `classNames` that will be appended, but
   using `styles` is encouraged over passing extra `classNames` to extend styles.
