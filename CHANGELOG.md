@@ -11,3 +11,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   https://github.com/patrickml/react-flexbox-grid-aphrodite/pull/10
 - Fixed generated container styles
   https://github.com/patrickml/react-flexbox-grid-aphrodite/pull/8
+- Added support for column order, eg. `<Col xsFirst lgLast>`
+  https://github.com/patrickml/react-flexbox-grid-aphrodite/pull/9
