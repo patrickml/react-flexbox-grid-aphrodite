@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import { css } from 'aphrodite';
+import { css, StyleSheet } from 'aphrodite';
 
 import { Grid, style } from '../src/components';
 
@@ -20,6 +20,17 @@ describe('Grid', () => {
     const wrapper = shallow(<Grid className="foo" />);
     const { className } = wrapper.props();
     expect(className).toContain('foo');
+    expect(className).toContain(css(style.container));
+  });
+
+  it('Should properly merge styles', () => {
+    const styleSheet = StyleSheet.create({
+      foo: {},
+    });
+
+    const wrapper = shallow(<Grid styles={styleSheet.foo} />);
+    const { className } = wrapper.props();
+    expect(className).toContain(css(styleSheet.foo));
     expect(className).toContain(css(style.container));
   });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import { css } from 'aphrodite';
+import { css, StyleSheet } from 'aphrodite';
 
 import { Col, style } from '../src/components';
 
@@ -23,6 +23,17 @@ describe('Col', () => {
     const wrapper = shallow(<Col className="foo" md={12} />);
     const { className } = wrapper.props();
     expect(className).toContain('foo');
+    expect(className).toContain(css(style['col-md-12']));
+  });
+
+  it('Should properly merge styles', () => {
+    const styleSheet = StyleSheet.create({
+      foo: {},
+    });
+
+    const wrapper = shallow(<Col styles={styleSheet.foo} md={12} />);
+    const { className } = wrapper.props();
+    expect(className).toContain(css(styleSheet.foo));
     expect(className).toContain(css(style['col-md-12']));
   });
 
