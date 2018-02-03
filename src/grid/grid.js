@@ -124,16 +124,18 @@ export const createPositionColumns = (size, mediaKey) => (
 /**
  * Creates a container style element for a particular size
  * @function
- * @param  {String} size  the size to create the container for
+ * @param  {Array<String>} sizes  the sizes to create the container for
  * @return {Object}
  */
-export const createContainer = (size, mediaKey) => (
+export const createContainer = sizes => (
   {
-    container: wrapMedia(mediaKey, {
-      width: CONTAINER_SIZES[size],
-      marginRight: 'auto',
-      marginLeft: 'auto',
-    }),
+    container: sizes.map(size =>
+      wrapMedia(getMediaPortKey(size), {
+        width: CONTAINER_SIZES[size] || 'initial',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+      }),
+    ).reduce(reduceStyles, {}),
   }
 );
 
@@ -151,7 +153,10 @@ export const createFlexColumns = (size) => {
       ...createOffsetColumn(size, col, mediaKey),
       ...createPositionColumns(size, mediaKey),
     }
-  )).reduce(reduceStyles, createContainer(size, mediaKey));
+  )).reduce(reduceStyles, {});
 };
 
-export default () => SIZES.map(size => createFlexColumns(size)).reduce(reduceStyles, MISC_STYLES);
+export default () =>
+    SIZES.map(createFlexColumns)
+    .concat([createContainer(SIZES)])
+    .reduce(reduceStyles, MISC_STYLES);
